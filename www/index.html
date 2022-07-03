@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Mokde</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+   <!-- Custom styles for this template -->
+   <link href="css/navbar-fixed-top.css" rel="stylesheet">
+   <script src="cordova.js"></script>
+   <script src="js/signals.min.js"></script>
+   <script src="js/crossroads.min.js"></script>
+   <script src="js/hasher.min.js"></script>
+   <script src="js/bootbox.min.js"></script>
+   <script src="js/index.js"></script>
+   <script src="js/jquery-3.2.1.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <style>
+    
+   </style>
+</head>
+
+<body>
+
+   <!-- Fixed navbar -->
+   <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container" style="background-color:rgb(226, 21, 21) ;">
+         <div class="navbar-header" style="background-color: rgb(226, 21, 21);">
+            <a style="color: white;" class="navbar-brand" href="#supplier"><span class="glyphicon glyphicon-menu-hamburger"></span> Mokde</a>
+         </div>
+
+      </div>
+   </nav>
+
+   <div class="container">
+
+      <div class="well" id="divUserList" style="display:block">
+         <div class="row">
+            <div class="col-sm-12">
+               <table class="table table-condensed table-striped table hover" id="tblmokde">
+
+                  <thead>
+               
+                        <th>Index</th>
+                        <th>Nickname</th>
+                        
+                     
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+               </table>
+            </div>
+
+         </div>
+      </div>
+   </div>
+
+
+   <div class="well" id="divFrmShowUser" style="display:none">
+      <div class="row">
+         <div class="col-sm-6">
+            <form id="frmShowUser">
+               <fieldset>
+                  <div class="col-lg-8 col-lg-offset-4">
+                     <h3>User Details</h3>
+                  </div>
+                  <div class="form-group">
+                     <label for="id" class="col-lg-4 control-label">Id</label>
+                     <div class="col-lg-8">
+                        <input type="text" id="idshow" class="form-control" placeholder="User ID" readonly />
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="nickname" class="col-lg-4 control-label">Nickname</label>
+                     <div class="col-lg-8">
+                        <input type="text" id="nicknameshow" class="form-control" placeholder="Nickname" readonly />
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="username" class="col-lg-4 control-label">Username</label>
+                     <div class="col-lg-8">
+                        <input type="text" id="usernameshow" class="form-control" placeholder="User Name"
+                           readonly />
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="password" class="col-lg-4 control-label">Password</label>
+                     <div class="col-lg-8">
+                        <input type="text" id="passwordshow" class="form-control" placeholder="Password"
+                           readonly />
+                     </div>
+                  </div>
+
+                  <div class="form-group text-right">
+                     <div class="col-lg-8 col-lg-offset-4">
+
+                        <a class="btn btn-primary btn-lg" href="" role="button" id="btnPencil"><span
+                              class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-primary btn-lg" href="" role="button" id="btnDelete"><span
+                              class="glyphicon glyphicon-trash"></span></a>
+                     </div>
+                  </div>
+               </fieldset>
+            </form>
+         </div>
+      </div>
+   </div>
+
+   <div class="container">
+
+      <div class="well" id="divFrmInputUser" style="display:none">
+         <div class="row">
+            <div class="col-sm-6">
+               <form id="frmInputUser">
+                  <fieldset>
+                     <div class="col-lg-8 col-lg-offset-4">
+
+                        <h3>Input New User</h3>
+                     </div>
+                     <div class="form-group">
+                        <label for="nickname" class="col-lg-4 control-label">Nickname</label>
+                        <div class="col-lg-8">
+                           <input type="text" id="nicknameinput" class="form-control" placeholder="Nickname"
+                              required />
+                              </div>
+                     </div>
+                       <div class="form-group">
+                       <label for="username" class="col-lg-4 control-label">Username</label>
+                       <div class="col-lg-8">
+                       <input type="text" id="usernameinput" class="form-control" placeholder="Username"
+                    required />
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label for="password" class="col-lg-4 control-label">Password</label>
+                        <div class="col-lg-8">
+                           <input type="text" id="passwordinput" class="form-control" placeholder="Password"
+                              required />
+                        </div>
+                     </div>
+
+                     <div class="form-group text-right">
+                        <div class="col-lg-8 col-lg-offset-4">
+
+                           <button id="btnRegister" class="btn btn-lg btn-primary btn-block" >Register</button>
+                           <button class="btn btn-lg btn-danger btn-block" type="reset">Reset</button>
+
+                        </div>
+                     </div>
+                  </fieldset>
+               </form>
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+   <div class="well" id="divFrmEditUser" style="display:none">
+      <div class="row">
+         <div class="col-sm-6">
+            <form id="frmEditUser">
+               <fieldset>
+                  <div class="col-lg-8 col-lg-offset-4">
+                     <h3>Update User</h3>
+                  </div>
+                  <div class="form-group">
+                     <label for="userId" class="col-lg-4 control-label">User ID</label>
+                     <div class="col-lg-8">
+                        <input type="text" id="useridedit" class="form-control" placeholder="User ID" readonly />
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="Nickname" class="col-lg-4 control-label">Nickname</label>
+                     <div class="col-lg-8">
+                        <input type="text" id="nicknameedit" class="form-control" placeholder="Nickname" />
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="Username" class="col-lg-4 control-label">Username</label>
+                     <div class="col-lg-8">
+                        <input type="text" id="usernameedit" class="form-control" placeholder="Username" />
+                     </div>
+
+                  <div class="form-group">
+                     <label for="Password" class="col-lg-4 control-label">Password</label>
+                     <div class="col-lg-8">
+                        <input type="text" id="passwordedit" class="form-control" placeholder="Password" />
+                     </div>
+                  </div>
+
+                  <div class="form-group text-right">
+                     <div class="col-lg-8 col-lg-offset-4">
+
+                        <button type="submit"><span class="glyphicon glyphicon-ok">Update</span></button>
+                     </div>
+                  </div>
+               </fieldset>
+            </form>
+         </div>
+      </div>
+   </div>
+
+   <nav class="navbar navbar-fixed-bottom">
+      <div class="well text-right" id="divAddUserBtn" style="display:block">
+         <a class="btn btn-primary btn-lg" href="#btnAddUser" role="button"><span
+               class="glyphicon glyphicon-plus"></span></a>
+      </div>
+   </nav>
+
+   <script src="cordova.js"></script>
+   <script src="js/signals.min.js"></script>
+   <script src="js/crossroads.min.js"></script>
+   <script src="js/hasher.min.js"></script>
+   <script src="js/bootbox.min.js"></script>
+   <script src="js/index.js"></script>
+   <script src="js/jquery-3.2.1.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
